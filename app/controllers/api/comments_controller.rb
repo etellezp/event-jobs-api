@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-  before_action :set_profile, only: [:show, :update, :destroy]
+  before_action :set_profile, only: [:index, :destroy]
 
   def index
     render json: @profile.comments
