@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-  before_action :set_profile, only: [:index, :create, :destroy]
+  before_action :set_profile, only: [:index, :create]
 
   def index
     render json: @profile.comments
@@ -11,15 +11,6 @@ class Api::CommentsController < ApplicationController
       render json: @comment
     else
       render json: { message: @comment.errors }, status: 400
-    end
-  end
-
-  def destroy
-    @comment = @profile.comments.find(params[:id])
-    if @comment.destroy
-      render status: 204
-    else
-      render json: { message: "Unable to delete this comment" }
     end
   end
 
