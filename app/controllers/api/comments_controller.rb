@@ -1,4 +1,3 @@
-require 'pry'
 class Api::CommentsController < ApplicationController
   before_action :set_profile, only: [:index, :create, :destroy]
 
